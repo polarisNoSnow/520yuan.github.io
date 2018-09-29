@@ -1,44 +1,92 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>YUAN</title>
-	<link rel="stylesheet" href="css/style.css">
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
 </head>
+
 <body>
-	<!-- 代码部分begin -->
-	<!-- 书的主体 -->
-	<div class="book preserve-3d">
-		<!-- 书的最后一页 -->
-		<div class="book-page-box book-page-4 preserve-3d">
-			<div class="book-page page-front">
-				<p>喜欢便知心疼，相遇便知情深；你从未嗅到我的情，正如我从未碰到你的心。</p>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">人生如茶，初识饮，不念卿，细细品，才觉情。</span>
+				<br />
+				<br />
+				<br />
+				<span class="space"/><span class="comments">这是如火般的思念，</span><br />
+				<span class="space"/><span class="comments">我美丽的姑娘。</span><br />
+				<span class="space"/><span class="comments">自从与你相遇，</span><br />
+				<span class="space"/><span class="comments">内心的煎熬便一天一天加剧。</span><br />
+				<br/>
+				<span class="space"/>亲爱的姑娘，<br />
+				<span class="space"/>我喜欢你，<br />
+				<span class="space"/>这是连维纳斯女神都已知晓的秘密。<br />
+				<span class="space"/>皎洁的月光夹杂着雨水，<br />
+				<span class="space"/>原来爱神也会流泪。<br />
+				<br/>
+				<span class="space"/><span class="keyword">我思念的姑娘，<br />
+				<span class="space"/>我该怎样忘记你。<br />
+				<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						三原, I love U！
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- 熙山</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<!-- 书的第三页 -->
-		<div class="book-page-box book-page-3 preserve-3d flip-animation-3">
-			<div class="book-page page-front">
-				<p>都是普通口红，都是普通言语，迷人的笑容牵动上涌的痴心。</p>
-			</div>
-		</div>
-		<!-- 书的第二页 -->
-		<div class="book-page-box book-page-2 preserve-3d flip-animation-2">
-			<div class="book-page page-front">
-				<p>都是同样眼镜，都是同样发型，白皙的皮肤搭配精致的衣裙。</p>
-			</div>
-		</div>
-		<!-- 书的封面 -->
-		<div class="book-page-box book-page-1 preserve-3d flip-animation-1">
-			<div class="book-page page-front">
-				<p>
-					情与心
-					<br>
-					--北辰不落雪
-				</p>
-			</div>
-		</div>
+	
 	</div>
-	<!-- 代码部分end -->
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2017, 8, 28);
+		together.setHours(18);
+		together.setMinutes(30);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+	<audio src="/i/horse.ogg" autoplay="autoplay"></audio>
 </body>
 </html>
